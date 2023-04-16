@@ -1,8 +1,20 @@
 #include <iostream>
+#include <queue>
+#include <vector>
 
-// https://code-with-me.global.jetbrains.com/BIS468WfGnbPeo8ihYUQIw#p=CL&fp=3D99BCF1D2245B0D4CAE6E97EA5DF5F10A66786425E8151046ECE1374CDFC52B
+using namespace std;
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+int main () {
+    priority_queue<int, vector<int>, greater<>> mi_cola;
+
+    mi_cola.push(70);
+    mi_cola.push(60);
+    mi_cola.push(85);
+
+    while (!mi_cola.empty()){
+        cout << mi_cola.top() << endl;
+        mi_cola.pop();
+    }
+
     return 0;
 }
