@@ -5,4 +5,4 @@ include_directories(include)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Jukebox src/main.cpp)
+add_executable(Jukebox src/main.cpp include/Cancion.h src/Cancion.cpp)
