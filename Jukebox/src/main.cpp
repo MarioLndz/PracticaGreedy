@@ -4,6 +4,13 @@
 
 using namespace std;
 
+struct cancion {
+    int id;
+    int num_reproducciones;
+};
+
+// https://code-with-me.global.jetbrains.com/0tD7iDuIjaZfvQhPgYpaNg#p=CL&fp=822925F2AFF0EA271CB3072E68B90D0B71F615661DFCF94436CA541B4EBF8DDF
+
 int main () {
     priority_queue<int, vector<int>, greater<>> mi_cola;
 
