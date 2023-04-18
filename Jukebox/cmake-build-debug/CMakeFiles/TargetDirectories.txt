@@ -1,3 +1,4 @@
 /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Jukebox.dir
+/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc1.dir
 /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/rebuild_cache.dir

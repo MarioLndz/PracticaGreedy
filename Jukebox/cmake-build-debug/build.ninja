@@ -63,6 +63,13 @@ build CMakeFiles/Jukebox.dir/src/Cancion.cpp.o: CXX_COMPILER__Jukebox_Debug /hom
   OBJECT_DIR = CMakeFiles/Jukebox.dir
   OBJECT_FILE_DIR = CMakeFiles/Jukebox.dir/src
 
+build CMakeFiles/Jukebox.dir/src/punto.cpp.o: CXX_COMPILER__Jukebox_Debug /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/src/punto.cpp || cmake_object_order_depends_target_Jukebox
+  DEP_FILE = CMakeFiles/Jukebox.dir/src/punto.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/include
+  OBJECT_DIR = CMakeFiles/Jukebox.dir
+  OBJECT_FILE_DIR = CMakeFiles/Jukebox.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Jukebox
@@ -71,13 +78,52 @@ build CMakeFiles/Jukebox.dir/src/Cancion.cpp.o: CXX_COMPILER__Jukebox_Debug /hom
 #############################################
 # Link the executable Jukebox
 
-build Jukebox: CXX_EXECUTABLE_LINKER__Jukebox_Debug CMakeFiles/Jukebox.dir/src/main.cpp.o CMakeFiles/Jukebox.dir/src/Cancion.cpp.o
+build Jukebox: CXX_EXECUTABLE_LINKER__Jukebox_Debug CMakeFiles/Jukebox.dir/src/main.cpp.o CMakeFiles/Jukebox.dir/src/Cancion.cpp.o CMakeFiles/Jukebox.dir/src/punto.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Jukebox.dir
   POST_BUILD = :
   PRE_LINK = :
   TARGET_FILE = Jukebox
   TARGET_PDB = Jukebox.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Pvc1
+
+
+#############################################
+# Order-only phony target for Pvc1
+
+build cmake_object_order_depends_target_Pvc1: phony || CMakeFiles/Pvc1.dir
+
+build CMakeFiles/Pvc1.dir/src/pvc1.cpp.o: CXX_COMPILER__Pvc1_Debug /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/src/pvc1.cpp || cmake_object_order_depends_target_Pvc1
+  DEP_FILE = CMakeFiles/Pvc1.dir/src/pvc1.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/include
+  OBJECT_DIR = CMakeFiles/Pvc1.dir
+  OBJECT_FILE_DIR = CMakeFiles/Pvc1.dir/src
+
+build CMakeFiles/Pvc1.dir/src/punto.cpp.o: CXX_COMPILER__Pvc1_Debug /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/src/punto.cpp || cmake_object_order_depends_target_Pvc1
+  DEP_FILE = CMakeFiles/Pvc1.dir/src/punto.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/include
+  OBJECT_DIR = CMakeFiles/Pvc1.dir
+  OBJECT_FILE_DIR = CMakeFiles/Pvc1.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Pvc1
+
+
+#############################################
+# Link the executable Pvc1
+
+build Pvc1: CXX_EXECUTABLE_LINKER__Pvc1_Debug CMakeFiles/Pvc1.dir/src/pvc1.cpp.o CMakeFiles/Pvc1.dir/src/punto.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Pvc1.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Pvc1
+  TARGET_PDB = Pvc1.dbg
 
 
 #############################################
@@ -114,7 +160,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug
 
-build all: phony Jukebox
+build all: phony Jukebox Pvc1
 
 # =============================================================================
 # Built-in targets
