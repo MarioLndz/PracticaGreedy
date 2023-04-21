@@ -39,5 +39,6 @@ bool Cancion::operator== (const Cancion & otro) const{
 }
 
 ostream & operator<< (ostream & os, const Cancion & pt){
-    cout << "ID: " << pt.id << "\tNumReproducciones: " << pt.num_reproducciones;
+    os << "ID: " << pt.id << "\tNumReproducciones: " << pt.num_reproducciones;
+    return (os);
 }

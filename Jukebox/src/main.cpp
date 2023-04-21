@@ -87,12 +87,7 @@ int MasLejano(vector<int>v, vector<int>l){   // devuelve el indice del mas lejan
 }
 
 
-/*
- * TUTORIAL PARA WAN
- * PON ESTO EN LA TERMINAL: git config --global credential.helper store
- *                          git pull
- * PON USUARIO Y CONTRASEÑA SI TE LA PIDE
- */
+// https://code-with-me.global.jetbrains.com/h0-lX-XK4jirUn_ZSL5btg#p=CL&fp=E39314F4DCA53A806D09956EDBE103D7C3B3AA43DE585ED7E7ACF1C66ADE4603
 
 int main () {
     /*
