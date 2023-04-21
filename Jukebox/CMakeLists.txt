@@ -7,3 +7,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Jukebox src/main.cpp include/Cancion.h src/Cancion.cpp src/punto.cpp)
 add_executable(Pvc1 src/pvc1.cpp src/punto.cpp)
+add_executable(Pvc2 src/pvc2.cpp)
