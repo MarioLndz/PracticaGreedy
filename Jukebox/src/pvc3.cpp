@@ -5,8 +5,11 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <chrono>
+#include <random>
 
 using namespace std;
+using namespace std::chrono;
 
 // algoritmo de inserción
 // eficiencia n²log2(n), n³
@@ -44,30 +47,30 @@ int main(int argc, char * argv[]){
     file.close();
 
     vector<int> visita;
+    visita.resize(NUM_NODOS);
 
     // en primer lugar buscamos el nodo más cercanos de 0
 
-    int minimo=100;
-    int p1;
+    int minimo = distancias[0][1];
+    int p1 = 1;
 
-    for(int i=0;i<NUM_NODOS;i++){
-        if(distancias[0][i]<minimo){
-            minimo=distancias[0][i];
-            p1=i;
+    for(int i = 2; i < NUM_NODOS; ++i){
+        if(distancias[0][i] < minimo){
+            minimo = distancias[0][i];
+            p1 = i;
         }
 
     }
 
-    visita.at(0)=0;                    // metemos 0 al principio salimos de la empresa
+    visita.at(0) = 0;                    // metemos 0 al principio salimos de la empresa
     visita.at(NUM_NODOS-1)=p1;          // metemos p1 al final que es el
-
     // ya sabemos que la minima distancia es minimo y que se produce entre los puntos p1 y 0
     // vamos a coger el nodo k que tenga menor cantidad dist(p1,k) + dist(0,k) - dist(p1,0)
 
     int contador=1, indice=0;
     int distancia_solucion = 0;
 
-    while(visita.size()<NUM_NODOS-2){
+    while(visita.size() < NUM_NODOS-2){
         int suma_minima=100;
         for (int i = 1; i < NUM_NODOS; ++i){
             int num = distancias[p1][i] + distancias[0][i] - minimo;
