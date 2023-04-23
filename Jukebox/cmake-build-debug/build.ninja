@@ -87,6 +87,38 @@ build Jukebox: CXX_EXECUTABLE_LINKER__Jukebox_Debug CMakeFiles/Jukebox.dir/src/m
   TARGET_PDB = Jukebox.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target Generador
+
+
+#############################################
+# Order-only phony target for Generador
+
+build cmake_object_order_depends_target_Generador: phony || CMakeFiles/Generador.dir
+
+build CMakeFiles/Generador.dir/src/generador.cpp.o: CXX_COMPILER__Generador_Debug /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/src/generador.cpp || cmake_object_order_depends_target_Generador
+  DEP_FILE = CMakeFiles/Generador.dir/src/generador.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/include
+  OBJECT_DIR = CMakeFiles/Generador.dir
+  OBJECT_FILE_DIR = CMakeFiles/Generador.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Generador
+
+
+#############################################
+# Link the executable Generador
+
+build Generador: CXX_EXECUTABLE_LINKER__Generador_Debug CMakeFiles/Generador.dir/src/generador.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Generador.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Generador
+  TARGET_PDB = Generador.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target Pvc1
 
 
@@ -157,6 +189,38 @@ build Pvc2: CXX_EXECUTABLE_LINKER__Pvc2_Debug CMakeFiles/Pvc2.dir/src/pvc2.cpp.o
   TARGET_FILE = Pvc2
   TARGET_PDB = Pvc2.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target Generador-pvc
+
+
+#############################################
+# Order-only phony target for Generador-pvc
+
+build cmake_object_order_depends_target_Generador-pvc: phony || CMakeFiles/Generador-pvc.dir
+
+build CMakeFiles/Generador-pvc.dir/src/generador-pvc.cpp.o: CXX_COMPILER__Generador-pvc_Debug /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/src/generador-pvc.cpp || cmake_object_order_depends_target_Generador-pvc
+  DEP_FILE = CMakeFiles/Generador-pvc.dir/src/generador-pvc.cpp.o.d
+  FLAGS = -g -std=gnu++20
+  INCLUDES = -I/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/include
+  OBJECT_DIR = CMakeFiles/Generador-pvc.dir
+  OBJECT_FILE_DIR = CMakeFiles/Generador-pvc.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Generador-pvc
+
+
+#############################################
+# Link the executable Generador-pvc
+
+build Generador-pvc: CXX_EXECUTABLE_LINKER__Generador-pvc_Debug CMakeFiles/Generador-pvc.dir/src/generador-pvc.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/Generador-pvc.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Generador-pvc
+  TARGET_PDB = Generador-pvc.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -192,7 +256,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug
 
-build all: phony Jukebox Pvc1 Pvc2
+build all: phony Jukebox Generador Pvc1 Pvc2 Generador-pvc
 
 # =============================================================================
 # Built-in targets

@@ -4,14 +4,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <unordered_set>
+#include <algorithm>
 
 using namespace std;
 
 // Algoritmo de kruskal = Diapositiva 50
 // Problema de viajante de comercio = Diapositiva 133
-
-
 
 int main (int argc, char * argv[]){
     if (argc != 2) {
@@ -27,55 +25,55 @@ int main (int argc, char * argv[]){
         exit(-1);
     }
 
-    int num_nodos=0;
-    file >> num_nodos;
+    int aux;
+    file >> aux;
 
-    int distancias[num_nodos][num_nodos];
+    const int NUM_NODOS = aux;
 
-    for (int i = 0; i < num_nodos; ++i)
-        for (int j = 0; j < num_nodos; ++j)
+    int distancias[NUM_NODOS][NUM_NODOS];
+
+    for (int i = 0; i < NUM_NODOS; ++i) {
+        for (int j = 0; j < NUM_NODOS; ++j) {
             file >> distancias[i][j];
+        }
+    }
 
-    unordered_set<int> orden;
-    bool done = false;
+    file.close();
 
-    orden.insert(0);  // la empresa está en 0
-    int pos_actual=0;   // posicion en la que estamos
-    int min_dist=100;
-    int indice_minimo=0;   // para calcular la siguiente posicion
+    vector<int> visita;
+
+    visita.push_back(0);  // la empresa está en 0
+    int pos_actual = 0;   // posicion en la que estamos
+
+    int indice_minimo = 1;   // para calcular la siguiente posicion
+    int min_dist = distancias[pos_actual][indice_minimo];
 
     int distancia_solucion = 0;
 
-    while (orden.size() < num_nodos){
+    while (visita.size() < NUM_NODOS){
         min_dist = 100;
-        for (int i = 1; i < num_nodos; ++i){
-            if((orden.find(i) == nullptr) && (distancias[pos_actual][i] < min_dist) && (i != pos_actual)){
-                min_dist=distancias[pos_actual][i];
+        for (int i = 1; i < NUM_NODOS; ++i){
+            int num = distancias[pos_actual][i];
+
+            if((find(visita.begin(), visita.end(), i) == visita.end()) && (num < min_dist) && (i != pos_actual)){
+                min_dist = num;
                 indice_minimo = i;
             }
         }
         distancia_solucion += min_dist;
 
         pos_actual = indice_minimo;
-        orden.insert(pos_actual);
+        visita.push_back(pos_actual);
     }
 
-    /*
-    for (int i = 0; i < num_nodos; ++i){
-        for (int j = 0; j < num_nodos; ++j){
-            cout << distancias[i][j] << "\t";
-        }
-        cout << endl;
-    }
-    */
-    
+    distancia_solucion += distancias[visita.at(0)][visita.at(visita.size()-1)];
 
-    for(auto it=orden.begin();it!=orden.end();++it)
+    cout << "ORDEN DE VISITA:\t";
+    for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
     cout << endl;
 
     cout << distancia_solucion << endl;
-
 
     return (0);
 

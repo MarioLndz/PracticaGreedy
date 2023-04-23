@@ -6,11 +6,53 @@
 #include <fstream>
 #include <vector>
 #include <unordered_set>
+#include <cstdlib>
 
 using namespace std;
 
-int main (int argc, char * argv[]){
+struct Arista {
+    int origen;
+    int destino;
 
+    int peso;
+
+    bool operator< (const Arista & otro) const {
+        return(this->peso > otro.peso);
+    }
+
+};
+
+ostream & operator<< (ostream & os, const Arista & arista){
+    os << "{" << arista.origen << "->" << arista.destino << " (" << arista.peso << ")}";
+    return (os);
+}
+
+int BuscaRaiz (const vector<int> & caminos, int hoja){
+    while (hoja != caminos[hoja]){
+        hoja = caminos[hoja];
+    }
+
+    return (hoja);
+}
+
+int compareAristas (const void * a, const void * b) {
+    Arista * ar1 = (Arista*)a;
+    Arista * ar2 = (Arista*)b;
+
+    int retorno = 0;
+
+    if (ar1->origen < ar2->origen){
+        retorno = -1;
+    } else {
+        retorno = 1;
+    }
+    return (retorno);
+}
+
+// BIBLIOGRAFIA: https://www.techiedelight.com/es/kruskals-algorithm-for-finding-minimum-spanning-tree/
+
+int main (int argc, char * argv[]){
+    // LEEMOS LA MATRIZ DE DISTANCIAS DESDE FICHERO
     if (argc != 2) {
         cout << "NUMERO INCORRECTO DE ARGUMENTOS" << endl;
         exit(-1);
@@ -33,22 +75,84 @@ int main (int argc, char * argv[]){
         for (int j = 0; j < num_nodos; ++j)
             file >> distancias[i][j];
 
-    unordered_set<int> orden;
-    int min_distancia=100;
-    int p1, p2;
+    file.close();
 
-    for (int i = 1; i < num_nodos; ++i){
-        for (int j = 0; j < num_nodos; ++j){
-            if(distancias[i][j] < min_distancia){
-                p1=i;
-                p2=j;
-                min_distancia=distancias[i][j];
-            }
+    // CREAMOS EL VECTOR DE ARISTAS. Aprovecharemos que las distancias son simétricas
+    vector<Arista> aristas;
+    for (int i = 0; i < num_nodos; ++i){
+        for (int j = i+1; j < num_nodos; ++j){
+            aristas.push_back(Arista{i,j,distancias[i][j]});
         }
     }
-    orden.insert(p1);
-    orden.insert(p2);
 
+    // Ordenamos las aristas segun su peso de forma descendiente
+    sort(aristas.begin(), aristas.end());
+
+    cout << "ARISTAS:\t";
+    for (auto it = aristas.begin(); it != aristas.end(); ++it){
+        cout << *it << "\t";
+    }
+    cout << endl;
+
+    vector<int> caminos;    // Vector que guardara el camino seguido ( [0] = 1 Significa que 0 --> 1
+    int num_conexiones[num_nodos];  // Guardara el numero de conexiones que posee cada nodo
+
+    for (int i = 0; i < num_nodos; ++i){
+        caminos.push_back(i);
+        num_conexiones[i] = 0;
+    }
+
+    vector<Arista> solucion;
+
+    while (solucion.size() < num_nodos-1){
+        Arista siguiente_arista = aristas.back();
+        aristas.pop_back();
+
+        int origen = siguiente_arista.origen;
+        int destino = siguiente_arista.destino;
+
+        // Cada nodo solo podrá tener dos conexiones
+        if ((num_conexiones[origen] < 2) && (num_conexiones[destino] < 2)){
+            int raiz_a = BuscaRaiz(caminos, origen);    // O(n)
+            int raiz_b = BuscaRaiz(caminos, destino);   // O(n)
+
+            if (raiz_a != raiz_b){
+                solucion.push_back(siguiente_arista);
+                caminos[origen] = destino;
+                ++num_conexiones[origen];
+                ++num_conexiones[destino];
+            }
+
+        }
+    }
+
+    // Buscamos la ultima conexion faltante para completar el ciclo
+    bool done = false;
+    int i = 0;
+    while (!done){  // O(n)
+        if (num_conexiones[i] == 1){
+            int j = i+1;
+            while (!done){
+                if (j != i && num_conexiones[j] == 1){
+                    solucion.push_back(Arista{j,i,distancias[i][j]});
+                    done = true;
+                }
+                ++j;
+            }
+        }
+        ++i;
+    }
+
+
+    int distancia_solucion = 0;
+    cout << "SOLUCION:\t";
+    for (auto it = solucion.begin(); it != solucion.end(); ++it){
+        cout << *it << "\t";
+        distancia_solucion += it->peso;
+    }
+    cout << endl;
+
+    cout << "DISTANCIA:\t" << distancia_solucion << endl;
 
     return (0);
 

@@ -67,10 +67,13 @@ int main (int argc, char * argv[]) {
 
         peticiones.push_back(id);
     }
+
     file.close();
 
     const int NUM_PETICIONES = peticiones.size();
     const int TAMANIO_INMEDIATO = NUM_PETICIONES/5;
+
+    cout << "Tamaño de la lista inmediata:\t" << TAMANIO_INMEDIATO << endl;
 
     vector<int> inmediato;    // canciones que están en la reproducción inmediata
 
@@ -79,7 +82,7 @@ int main (int argc, char * argv[]) {
     cout << "VECTOR DE PETICIONES:\t";
     for (int i = 0; i < NUM_PETICIONES; ++i)
         cout << peticiones.at(i) << "\t";
-    cout << endl;
+    cout << endl << endl;
 
     for (int i = 0; i < NUM_PETICIONES; ++i){
         if (!Pertenece(inmediato, peticiones.at(i))){
