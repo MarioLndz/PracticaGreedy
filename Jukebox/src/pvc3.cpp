@@ -11,6 +11,8 @@ using namespace std;
 // algoritmo de inserción
 // eficiencia n²log2(n), n³
 
+// https://code-with-me.global.jetbrains.com/QMEr96kuffnKWYZy8TvYeA#p=CL&fp=E3C0370DBA44241E9419D98EE3D076413908BBBE8850DE1D9702946C969822F4
+
 int main(int argc, char * argv[]){
 
     if (argc != 2) {

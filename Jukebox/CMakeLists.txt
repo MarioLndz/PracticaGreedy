@@ -10,6 +10,6 @@ add_executable(Generador src/generador.cpp src/pvc3.cpp src/pvc3.cpp)
 
 add_executable(Pvc1 src/pvc1.cpp src/punto.cpp)
 add_executable(Pvc2 src/pvc2.cpp)
-add_executable(Pvc3 src/pvc3.cpp src/pvc3.cpp src/pvc3.cpp)
+add_executable(Pvc3 src/pvc3.cpp)
 
 add_executable(Generador-pvc src/generador-pvc.cpp)
