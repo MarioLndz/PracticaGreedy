@@ -7,9 +7,6 @@
 # Variable que indica el compilador que se va a utilizar
 CC=g++
 
-#Variable que indica las opciones que se le va a pasar al compilador
-CPPFLAGS= -Wall
-
 # Variable que indica el directorio del proyecto Voraz
 VORAZ= ./Voraz
 
@@ -34,24 +31,24 @@ all: voraz pvc1 pvc2 pvc3 generador generador-pvc
 
 # ---------- Voraz ----------
 voraz: $(VORAZ)/main.cpp
-	$(CC) $(CPPFLAGS) $(VORAZ)/main.cpp -o voraz
+	$(CC) $(VORAZ)/main.cpp -o voraz
 
 # ---------- Pvc1 ----------
 pvc1: $(PVC1)/pvc1.cpp
-	$(CC) $(CPPFLAGS) $(PVC1)/pvc1.cpp -o pvc1
+	$(CC) $(PVC1)/pvc1.cpp -o pvc1
 
 # ---------- Pvc2 ----------
 pvc2: $(PVC1)/pvc1.cpp
-	$(CC) $(CPPFLAGS) $(PVC2)/pvc2.cpp -o pvc2
+	$(CC) $(PVC2)/pvc2.cpp -o pvc2
 
 # ---------- Pvc3 ----------
 pvc3: $(PVC1)/pvc1.cpp
-	$(CC) $(CPPFLAGS) $(PVC3)/pvc3.cpp -o pvc3
+	$(CC) $(PVC3)/pvc3.cpp -o pvc3
 
 # ---------- Generador ----------
 generador: $(GENERADOR_DIR)/generador.cpp
-	$(CC) $(CPPFLAGS) $(GENERADOR_DIR)/generador.cpp -o generador
+	$(CC) $(GENERADOR_DIR)/generador.cpp -o generador
 
 # ---------- Generador-pvc ----------
 generador-pvc: $(GENERADOR_PVC_DIR)/generador-pvc.cpp
-	$(CC) $(CPPFLAGS) $(GENERADOR_PVC_DIR)/generador-pvc.cpp -o generador-pvc
+	$(CC) $(GENERADOR_PVC_DIR)/generador-pvc.cpp -o generador-pvc
