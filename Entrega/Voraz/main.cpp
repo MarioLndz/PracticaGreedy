@@ -75,18 +75,19 @@ int main (int argc, char * argv[]) {
 
     const int NUM_PETICIONES = peticiones.size();
     const int TAMANIO_INMEDIATO = NUM_PETICIONES/5;
-
+    /*
     cout << "Tamaño de la lista inmediata:\t" << TAMANIO_INMEDIATO << endl;
+    */
 
     vector<int> inmediato;    // canciones que están en la reproducción inmediata
 
     int NUM_INTERCAMBIOS = 0;
-
+    /*
     cout << "VECTOR DE PETICIONES:\t";
     for (int i = 0; i < NUM_PETICIONES; ++i)
         cout << peticiones.at(i) << "\t";
     cout << endl << endl;
-
+    */
     high_resolution_clock::time_point t_antes, t_despues;
     duration<double> transcurrido;
 
@@ -108,9 +109,6 @@ int main (int argc, char * argv[]) {
     t_despues = high_resolution_clock::now();
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
     cout << NUM_PETICIONES << "\t" << transcurrido.count() << endl;
-
-    cout << "Se han necesitado realizar " << NUM_INTERCAMBIOS << " intercambios" << endl;
-
 
     return 0;
 }

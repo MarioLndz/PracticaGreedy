@@ -93,11 +93,13 @@ int main (int argc, char * argv[]){
     // Ordenamos las aristas segun su peso de forma descendiente
     qsort(aristas.data(), aristas.size(), sizeof(Arista), compareAristas);
 
+    /*
     cout << "ARISTAS:\t";
     for (auto it = aristas.begin(); it != aristas.end(); ++it){
         cout << *it << "\t";
     }
     cout << endl;
+     */
 
     vector<int> caminos;    // Vector que guardara el camino seguido ( [0] = 1 Significa que 0 --> 1
     int num_conexiones[NUM_NODOS];  // Guardara el numero de conexiones que posee cada nodo
@@ -158,6 +160,8 @@ int main (int argc, char * argv[]){
     cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
 
     int distancia_solucion = 0;
+
+    /*
     cout << "SOLUCION:\t";
     for (auto it = solucion.begin(); it != solucion.end(); ++it){
         cout << *it << "\t";
@@ -166,6 +170,7 @@ int main (int argc, char * argv[]){
     cout << endl;
 
     cout << "DISTANCIA:\t" << distancia_solucion << endl;
+     */
 
     return (0);
 

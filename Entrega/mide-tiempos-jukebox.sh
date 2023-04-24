@@ -2,8 +2,8 @@
 #echo "" >> salida.dat
 printf "" > jukebox.dat
 
-i=500
-while [ "$i" -le 12500 ]
+i=400
+while [ "$i" -le 10000 ]
 do
 	# Generamos los puntos	
 	./generador $i
@@ -13,5 +13,5 @@ do
 
 	echo "Terminado $i" 
 	
-	i=$(( $i + 500 ))
+	i=$(( $i + 400))
 done

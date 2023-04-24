@@ -54,6 +54,11 @@ int main(int argc, char * argv[]){
     int minimo = 100;
     int p1 = 1;
 
+    high_resolution_clock::time_point t_antes, t_despues;
+    duration<double> transcurrido;
+
+    t_antes = high_resolution_clock::now();
+
     for(int i = 1; i < NUM_NODOS; ++i){
         if(distancias[0][i] < minimo){
             minimo = distancias[0][i];
@@ -86,6 +91,12 @@ int main(int argc, char * argv[]){
         contador++;
     }
 
+    t_despues = high_resolution_clock::now();
+    transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
+    cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
+
+    /*
+
     cout << "ORDEN DE VISITA:\t";
     for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
@@ -96,6 +107,8 @@ int main(int argc, char * argv[]){
     distancia_solucion += distancias[visita.at(0)][visita.at(visita.size()-1)];
     cout << "distancia reocrrida:" << endl;
     cout << distancia_solucion << endl;
+
+     */
 
     return 0;
 }

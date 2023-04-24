@@ -80,12 +80,14 @@ int main (int argc, char * argv[]){
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
     cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
 
+    /*
     cout << "ORDEN DE VISITA:\t";
     for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
     cout << endl;
 
     cout << distancia_solucion << endl;
+     */
 
     return (0);
 
