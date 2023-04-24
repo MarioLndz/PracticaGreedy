@@ -9,7 +9,7 @@ do
 	./generador-pvc $i
   	
 	# Ejecutamos los puntos
-	./pvc1 data.txt >> pvc1.dat
+	./pvc1 data_pvc >> pvc1.dat
 
 	echo "Terminado $i" 
 	

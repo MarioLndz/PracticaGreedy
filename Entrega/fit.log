@@ -1,0 +1,40 @@
+
+
+*******************************************************************************
+Mon Apr 24 18:43:54 2023
+
+
+FIT:    data read from 'data_jukebox'
+        format = z
+        #datapoints = 125000
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a3*x*x*x + a2*x*x + a1*x + a0
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a3            a2            a1            a0           
+   0 6.8118958242e+34   0.00e+00  3.69e+14    1.000000e+00   1.000000e+00   1.000000e+00   1.000000e+00
+  16 1.6289217590e+14  -1.11e-03  3.69e-02    1.884441e-12  -3.842246e-07   1.921265e-02   6.228310e+04
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 1.62892e+14
+rel. change during last iteration : -1.11039e-08
+
+degrees of freedom    (FIT_NDF)                        : 124996
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 36099.6
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.30318e+09
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a3              = 1.88444e-12      +/- 2.766e-12    (146.8%)
+a2              = -3.84225e-07     +/- 5.26e-07     (136.9%)
+a1              = 0.0192126        +/- 0.0283       (147.3%)
+a0              = 62283.1          +/- 408.4        (0.6557%)
+
+correlation matrix of the fit parameters:
+                a3     a2     a1     a0     
+a3              1.000 
+a2             -0.986  1.000 
+a1              0.917 -0.968  1.000 
+a0             -0.661  0.745 -0.866  1.000 
