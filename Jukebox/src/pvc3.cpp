@@ -51,10 +51,10 @@ int main(int argc, char * argv[]){
 
     // en primer lugar buscamos el nodo más cercanos de 0
 
-    int minimo = distancias[0][1];
+    int minimo = 100;
     int p1 = 1;
 
-    for(int i = 2; i < NUM_NODOS; ++i){
+    for(int i = 1; i < NUM_NODOS; ++i){
         if(distancias[0][i] < minimo){
             minimo = distancias[0][i];
             p1 = i;
@@ -70,13 +70,14 @@ int main(int argc, char * argv[]){
     int contador=1, indice=0;
     int distancia_solucion = 0;
 
-    while(visita.size() < NUM_NODOS-2){
-        int suma_minima=100;
+    while(contador < NUM_NODOS-1){
+        int suma_minima=200;
         for (int i = 1; i < NUM_NODOS; ++i){
-            int num = distancias[p1][i] + distancias[0][i] - minimo;
-            if((num < suma_minima) && (i != p1)){
+            int num = distancias[i][p1] + distancias[i][0] - minimo;
+            if((find(visita.begin(), visita.end(), i) == visita.end()) && (num < suma_minima) && (i != p1)){
                 suma_minima=num;
                 indice=i;
+
             }
         }
         visita.at(NUM_NODOS-contador-1)=indice;  // lo metemos en la última posición no ocupada
@@ -88,8 +89,13 @@ int main(int argc, char * argv[]){
     cout << "ORDEN DE VISITA:\t";
     for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
+
+    cout << endl;
     cout << endl;
 
     distancia_solucion += distancias[visita.at(0)][visita.at(visita.size()-1)];
+    cout << "distancia reocrrida:" << endl;
     cout << distancia_solucion << endl;
+
+    return 0;
 }

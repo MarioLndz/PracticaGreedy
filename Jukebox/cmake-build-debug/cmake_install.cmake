@@ -1,4 +1,4 @@
-# Install script for directory: /home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox
+# Install script for directory: /home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

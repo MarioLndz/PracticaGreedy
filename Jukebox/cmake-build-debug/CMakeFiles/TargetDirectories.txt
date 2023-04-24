@@ -1,8 +1,8 @@
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Jukebox.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Generador.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc1.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc2.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc3.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Generador-pvc.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mario/Escritorio/Algoritmica/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Jukebox.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Generador.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc1.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc2.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Pvc3.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/Generador-pvc.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mp/Escritorio/Algoritmica/practica3/PracticaGreedy/Jukebox/cmake-build-debug/CMakeFiles/rebuild_cache.dir
