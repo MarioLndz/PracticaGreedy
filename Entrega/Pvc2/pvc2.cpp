@@ -89,14 +89,14 @@ int main (int argc, char * argv[]){
             distancias[j][i] = num;
         }
     }
-
-/*
+    /*
     for (int i = 0; i < NUM_NODOS; ++i){
         for (int j = 0; j < NUM_NODOS; ++j)
             cout << distancias[i][j] << "\t";
         cout << endl;
     }
-*/
+     */
+
     file.close();
 
     /*
@@ -181,20 +181,24 @@ int main (int argc, char * argv[]){
 
     t_despues = high_resolution_clock::now();
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
+
+
     cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
 
+    /*
     int distancia_solucion = 0;
 
-    /*
-    cout << "SOLUCION:\t";
+
+
     for (auto it = solucion.begin(); it != solucion.end(); ++it){
-        cout << *it << "\t";
         distancia_solucion += it->peso;
     }
-    cout << endl;
 
-    cout << "DISTANCIA:\t" << distancia_solucion << endl;
+
+    cout << distancia_solucion << endl;
+
      */
+
 
     // Liberación de la memoria
     for( int i = 0; i < NUM_NODOS; i++ )

@@ -1,6 +1,6 @@
 #!/bin/bash 
 #echo "" >> salida.dat
-printf "" > pvc3.dat
+printf "" > dist_pvc3.dat
 
 i=100
 while [ "$i" -le 3000 ]
@@ -10,7 +10,7 @@ do
 	printf "PUNTOS GENERADOS\t"
   	
 	# Ejecutamos los puntos
-	./pvc3 data_pvc.txt >> pvc3.dat
+	./pvc3 data_pvc.txt >> dist_pvc3.dat
 
 	echo "Terminado $i" 
 	

@@ -50,16 +50,13 @@ int main (int argc, char * argv[]){
         }
         ya_pertenece[i] = false;
     }
-
-/*
-
+    /*
     for (int i = 0; i < NUM_NODOS; ++i){
         for (int j = 0; j < NUM_NODOS; ++j)
             cout << distancias[i][j] << "\t";
         cout << endl;
     }
-*/
-
+    */
     file.close();
 
     vector<int> visita;
@@ -99,16 +96,23 @@ int main (int argc, char * argv[]){
 
     t_despues = high_resolution_clock::now();
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
+    /*
     cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
+    */
 
     /*
+
     cout << "ORDEN DE VISITA:\t";
     for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
     cout << endl;
 
+     */
+
+
+
     cout << distancia_solucion << endl;
-    */
+
 
     return (0);
 

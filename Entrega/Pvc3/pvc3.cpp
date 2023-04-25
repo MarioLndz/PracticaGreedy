@@ -59,13 +59,14 @@ int main(int argc, char * argv[]){
         }
         ya_pertenece[i] = false;
     }
-/*
+
+    /*
     for (int i = 0; i < NUM_NODOS; ++i){
         for (int j = 0; j < NUM_NODOS; ++j)
             cout << distancias[i][j] << "\t";
         cout << endl;
     }
-*/
+     */
 
     file.close();
 
@@ -128,8 +129,10 @@ int main(int argc, char * argv[]){
 
     t_despues = high_resolution_clock::now();
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
-    cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
 
+    /*
+    cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
+    */
 
     /*
     cout << "ORDEN DE VISITA:\t";
@@ -141,8 +144,10 @@ int main(int argc, char * argv[]){
 
     distancia_solucion += distancias[visita.at(0)][visita.at(visita.size()-1)];
     cout << "distancia reocrrida:" << endl;
-    cout << distancia_solucion << endl;
+
     */
+    cout << distancia_solucion << endl;
+
 
     /*
     // Liberación de la memoria
