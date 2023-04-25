@@ -37,11 +37,13 @@ int main(int argc, char * argv[]){
     const int NUM_NODOS = aux;
 
     int distancias[NUM_NODOS][NUM_NODOS];
+    bool ya_pertenece[NUM_NODOS];
 
     for (int i = 0; i < NUM_NODOS; ++i) {
         for (int j = 0; j < NUM_NODOS; ++j) {
             file >> distancias[i][j];
         }
+        ya_pertenece[i] = false;
     }
 
     file.close();
@@ -71,6 +73,9 @@ int main(int argc, char * argv[]){
     visita.at(NUM_NODOS-1)=p1;          // metemos p1 al final que es el
     // ya sabemos que la minima distancia es minimo y que se produce entre los puntos p1 y 0
     // vamos a coger el nodo k que tenga menor cantidad dist(p1,k) + dist(0,k) - dist(p1,0)
+    ya_pertenece[0] = true;
+    ya_pertenece[p1] = true;
+
 
     int contador=1, indice=0;
     int distancia_solucion = 0;
@@ -79,13 +84,15 @@ int main(int argc, char * argv[]){
         int suma_minima=200;
         for (int i = 1; i < NUM_NODOS; ++i){
             int num = distancias[i][p1] + distancias[i][0] - minimo;
-            if((find(visita.begin(), visita.end(), i) == visita.end()) && (num < suma_minima) && (i != p1)){
+            if((!ya_pertenece[i]) && (num < suma_minima) && (i != p1)){
                 suma_minima=num;
                 indice=i;
 
             }
         }
         visita.at(NUM_NODOS-contador-1)=indice;  // lo metemos en la última posición no ocupada
+        ya_pertenece[indice] = true;
+
         p1=indice;
         distancia_solucion += suma_minima;
         contador++;
@@ -95,8 +102,8 @@ int main(int argc, char * argv[]){
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
     cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
 
-    /*
 
+    /*
     cout << "ORDEN DE VISITA:\t";
     for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
@@ -107,8 +114,8 @@ int main(int argc, char * argv[]){
     distancia_solucion += distancias[visita.at(0)][visita.at(visita.size()-1)];
     cout << "distancia reocrrida:" << endl;
     cout << distancia_solucion << endl;
+    */
 
-     */
 
     return 0;
 }
