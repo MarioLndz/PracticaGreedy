@@ -36,17 +36,44 @@ int main(int argc, char * argv[]){
 
     const int NUM_NODOS = aux;
 
-    int distancias[NUM_NODOS][NUM_NODOS];
-    bool ya_pertenece[NUM_NODOS];
+    // Reserva de memoria
+    /*
+    int ** distancias = new int * [NUM_NODOS];
+    for( int i=0; i < NUM_NODOS; i++ )
+        distancias[i] = new int[NUM_NODOS];
+    */
+    vector<vector<int>> distancias (NUM_NODOS);
+    for (int i = 0; i < NUM_NODOS; ++i){
+        distancias[i].reserve(NUM_NODOS);
+    }
+
+    vector<bool> ya_pertenece(NUM_NODOS);
 
     for (int i = 0; i < NUM_NODOS; ++i) {
-        for (int j = 0; j < NUM_NODOS; ++j) {
-            file >> distancias[i][j];
+        distancias[i][i] = -1;
+        for (int j = i+1; j < NUM_NODOS; ++j) {
+            int num;
+            file >> num;
+            distancias[i][j] = num;
+            distancias[j][i] = num;
         }
         ya_pertenece[i] = false;
     }
 
+    for (int i = 0; i < NUM_NODOS; ++i){
+        for (int j = 0; j < NUM_NODOS; ++j)
+            cout << distancias[i][j] << "\t";
+        cout << endl;
+    }
+
     file.close();
+
+    /*
+    for (int i = 0; i < NUM_NODOS; ++i){
+        for (int j = 0; j < NUM_NODOS; ++j)
+            cout << distancias[i][j] << "\t";
+        cout << endl;
+    }*/
 
     vector<int> visita;
     visita.resize(NUM_NODOS);
@@ -116,6 +143,13 @@ int main(int argc, char * argv[]){
     cout << distancia_solucion << endl;
     */
 
+    /*
+    // Liberación de la memoria
+    for( int i = 0; i < NUM_NODOS; i++ )
+        delete[] distancias[i];
+
+    delete[] distancias;
+    */
 
     return 0;
 }

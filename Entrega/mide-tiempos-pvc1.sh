@@ -7,6 +7,7 @@ while [ "$i" -le 125000 ]
 do
 	# Generamos los puntos	
 	./generador-pvc $i
+	printf "PUNTOS GENERADOS\t"
   	
 	# Ejecutamos los puntos
 	./pvc1 data_pvc >> pvc1.dat

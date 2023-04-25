@@ -31,21 +31,10 @@ int main (int argc, char * argv[]){
 
     file << NUM_CASOS << endl;
 
-    int distancias[NUM_CASOS][NUM_CASOS];
+    const int NUM_ARISTAS = ((NUM_CASOS)*(NUM_CASOS-1))/2;
 
-    for (int i = 0; i < NUM_CASOS; ++i){
-        distancias[i][i] = -1;
-        for (int j = i+1; j < NUM_CASOS; ++j){
-            distancias[i][j] = rand()%101;
-            distancias[j][i] = distancias[i][j];
-        }
-    }
-
-    for (int i = 0; i < NUM_CASOS; ++i) {
-        for (int j = 0; j < NUM_CASOS; ++j){
-            file << distancias[i][j] << "\t";
-        }
-        file << endl;
+    for (int i = 0; i < NUM_ARISTAS; ++i){
+        file << rand()%101 << endl;
     }
 
     file.close();

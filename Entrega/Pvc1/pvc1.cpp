@@ -33,17 +33,34 @@ int main (int argc, char * argv[]){
 
     const int NUM_NODOS = aux;
 
-    int distancias[NUM_NODOS][NUM_NODOS];
+    vector<vector<int>> distancias (NUM_NODOS);
+    for (int i = 0; i < NUM_NODOS; ++i){
+        distancias[i].reserve(NUM_NODOS);
+    }
+
+    vector<bool> ya_pertenece(NUM_NODOS);
 
     for (int i = 0; i < NUM_NODOS; ++i) {
-        for (int j = 0; j < NUM_NODOS; ++j) {
-            file >> distancias[i][j];
+        distancias[i][i] = -1;
+        for (int j = i+1; j < NUM_NODOS; ++j) {
+            int num;
+            file >> num;
+            distancias[i][j] = num;
+            distancias[j][i] = num;
         }
+        ya_pertenece[i] = false;
+    }
+
+    for (int i = 0; i < NUM_NODOS; ++i){
+        for (int j = 0; j < NUM_NODOS; ++j)
+            cout << distancias[i][j] << "\t";
+        cout << endl;
     }
 
     file.close();
 
     vector<int> visita;
+
 
     visita.push_back(0);  // la empresa está en 0
     int pos_actual = 0;   // posicion en la que estamos
@@ -63,7 +80,7 @@ int main (int argc, char * argv[]){
         for (int i = 1; i < NUM_NODOS; ++i){
             int num = distancias[pos_actual][i];
 
-            if((find(visita.begin(), visita.end(), i) == visita.end()) && (num < min_dist) && (i != pos_actual)){
+            if((!ya_pertenece[i]) && (num < min_dist) && (i != pos_actual)){
                 min_dist = num;
                 indice_minimo = i;
             }
@@ -72,6 +89,7 @@ int main (int argc, char * argv[]){
 
         pos_actual = indice_minimo;
         visita.push_back(pos_actual);
+        ya_pertenece[pos_actual] = true;
     }
 
     distancia_solucion += distancias[visita.at(0)][visita.at(visita.size()-1)];
@@ -87,7 +105,7 @@ int main (int argc, char * argv[]){
     cout << endl;
 
     cout << distancia_solucion << endl;
-     */
+    */
 
     return (0);
 

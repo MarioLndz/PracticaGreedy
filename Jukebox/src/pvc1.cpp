@@ -33,14 +33,28 @@ int main (int argc, char * argv[]){
 
     const int NUM_NODOS = aux;
 
-    int distancias[NUM_NODOS][NUM_NODOS];
-    bool ya_pertenece[NUM_NODOS];
+    vector<vector<int>> distancias (NUM_NODOS);
+    for (int i = 0; i < NUM_NODOS; ++i){
+        distancias[i].reserve(NUM_NODOS);
+    }
+
+    vector<bool> ya_pertenece(NUM_NODOS);
 
     for (int i = 0; i < NUM_NODOS; ++i) {
-        for (int j = 0; j < NUM_NODOS; ++j) {
-            file >> distancias[i][j];
+        distancias[i][i] = -1;
+        for (int j = i+1; j < NUM_NODOS; ++j) {
+            int num;
+            file >> num;
+            distancias[i][j] = num;
+            distancias[j][i] = num;
         }
         ya_pertenece[i] = false;
+    }
+
+    for (int i = 0; i < NUM_NODOS; ++i){
+        for (int j = 0; j < NUM_NODOS; ++j)
+            cout << distancias[i][j] << "\t";
+        cout << endl;
     }
 
     file.close();
@@ -84,14 +98,14 @@ int main (int argc, char * argv[]){
     transcurrido = duration_cast<duration<double>>(t_despues - t_antes);
     cout << NUM_NODOS << "\t" << transcurrido.count() << endl;
 
-
+    /*
     cout << "ORDEN DE VISITA:\t";
     for (auto it = visita.begin(); it != visita.end(); ++it)
         cout << *it << "\t";
     cout << endl;
 
     cout << distancia_solucion << endl;
-
+    */
 
     return (0);
 
