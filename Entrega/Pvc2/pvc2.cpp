@@ -90,12 +90,13 @@ int main (int argc, char * argv[]){
         }
     }
 
+/*
     for (int i = 0; i < NUM_NODOS; ++i){
         for (int j = 0; j < NUM_NODOS; ++j)
             cout << distancias[i][j] << "\t";
         cout << endl;
     }
-    
+*/
     file.close();
 
     /*

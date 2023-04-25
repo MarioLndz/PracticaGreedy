@@ -2,17 +2,17 @@
 #echo "" >> salida.dat
 printf "" > pvc1.dat
 
-i=5000
-while [ "$i" -le 125000 ]
+i=100
+while [ "$i" -le 3000 ]
 do
 	# Generamos los puntos	
 	./generador-pvc $i
 	printf "PUNTOS GENERADOS\t"
   	
 	# Ejecutamos los puntos
-	./pvc1 data_pvc >> pvc1.dat
+	./pvc1 data_pvc.txt >> pvc1.dat
 
 	echo "Terminado $i" 
 	
-	i=$(( $i + 5000 ))
+	i=$(( $i + 100 ))
 done
