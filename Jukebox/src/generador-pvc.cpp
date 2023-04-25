@@ -6,6 +6,7 @@
 #include <iostream>
 #include <time.h>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ int main (int argc, char * argv[]){
 
     int aux = atoi(argv[1]);
     const int NUM_CASOS = aux;
-    string fichero = argc == 2 ? "data_pvc" : argv[2];
+    string fichero = argc == 2 ? "data_pvc.txt" : argv[2];
 
     ofstream file;
     file.open(fichero.c_str());
@@ -31,10 +32,18 @@ int main (int argc, char * argv[]){
 
     file << NUM_CASOS << endl;
 
-    const int NUM_ARISTAS = ((NUM_CASOS)*(NUM_CASOS-1))/2;
+    srandom(time(NULL));
+    std::random_device rd;
+    std::default_random_engine eng (rd());
+    std::uniform_int_distribution distr (0, 100);
 
-    for (int i = 0; i < NUM_ARISTAS; ++i){
-        file << rand()%101 << endl;
+    // Generamos tantos puntos como indique TOPE
+    // Las coordenadas estarán entre ]-LIMITE_SUP, LIMITE_SUP[
+    for (int i = 0; i < NUM_CASOS; ++i){
+        for (int j = i+1; j < NUM_CASOS; ++j){
+            int x = distr(eng);
+            file << x << endl;
+        }
     }
 
     file.close();
